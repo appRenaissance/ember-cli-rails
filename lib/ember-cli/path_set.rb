@@ -6,7 +6,7 @@ module EmberCLI
         if instance_variable_defined?(ivar)
           instance_variable_get(ivar)
         else
-          instance_exec(&definition).tap{ |value| instance_variable_set ivar, value }
+          instance_exec(&definition).tap{ |value| instance_variable_set ivar, "'#{value}'" }
         end
       end
     end
@@ -67,6 +67,7 @@ module EmberCLI
     end
 
     define_path :tee do
+      puts "TEE PATH: app_options.fetch(:tee_path){ configuration.tee_path }: #{app_options.fetch(:tee_path){ configuration.tee_path }}"
       app_options.fetch(:tee_path){ configuration.tee_path }
     end
 
