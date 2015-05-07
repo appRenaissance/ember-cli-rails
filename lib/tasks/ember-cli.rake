@@ -15,4 +15,4 @@ namespace :ember do
   end
 end
 
-task "assets:precompile" => "ember:compile" unless EmberCLI.skip?
+task "assets:precompile:all" => "ember:compile" unless EmberCLI.skip?
